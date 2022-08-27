@@ -5,7 +5,7 @@ RUN subscription-manager register --username=nileshg3108 --password=Redhat@1234 
 && dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
 && dnf clean all
 
-FROM base as Rdep
+FROM base as rdep
 RUN echo "Installing Redhat UBI system dependecies" \
 && dnf install -y binutils-2.30-113.el8.x86_64 \
   bzip2-devel-1.0.6-26.el8.x86_64 \
@@ -73,7 +73,7 @@ RUN echo "Installing Redhat UBI system dependecies" \
   zlib-devel-1.2.11-18.el8_5.x86_64 \
 && dnf clean all
 
-FROM Rdep as Rosdep
+FROM rdep as rosdep
 RUN echo "Installing system level dependecies for R packages" \
 && dnf install -y ImageMagick \
    ImageMagick-c++ \
