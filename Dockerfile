@@ -75,7 +75,6 @@ RUN echo "Installing Redhat UBI system dependecies" \
 
 FROM rdep as rbase
 ARG R_VERSION=4.1.1
-
 RUN echo "Installing R-4.1.1 Base..." && \
     curl -O https://cdn.rstudio.com/r/centos-8/pkgs/R-${R_VERSION}-1-1.x86_64.rpm && \
     dnf install -y R-${R_VERSION}-1-1.x86_64.rpm  dos2unix && \
